@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  tailscaled:
+    image: tailscale/tailscale:stable
+    container_name: tailscaled
+    network_mode: host
+    restart: always
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - /var/lib:/var/lib
+      - /dev/net/tun:/dev/net/tun
